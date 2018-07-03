@@ -1,8 +1,7 @@
 import React from "react";
 
 import Header from "../molecules/header";
-import Nav from "../molecules/nav";
-import RenderNavbar from "../molecules/render-navbar";
+import NavbarRightMenu from "../molecules/navbar-right-menu";
 import NavbarMenu from "../molecules/navbar-menu";
 import DropdowNotifications from "../molecules/dropdown-notifications";
 import Notification from "../atoms/notification";
@@ -11,9 +10,7 @@ import UserNotification from '../atoms/user-notification';
 
 const MainHeader = () => (
   <Header>
-    <Nav>
-      <RenderNavbar
-        render={({ data: { notifications, tasks, messages } }) => (
+    <NavbarRightMenu render={({ data: { notifications, tasks, messages } }) => (
           <NavbarMenu>
             <DropdowNotifications className={"notifications-menu"} icon={"flag-o"} label={"label-success"}>
               {notifications.map(({ id, ...notification }) => <Notification key={id} {...notification} />)}
@@ -27,7 +24,6 @@ const MainHeader = () => (
           </NavbarMenu>
         )}
       />
-    </Nav>
   </Header>
 );
 

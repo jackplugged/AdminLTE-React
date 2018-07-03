@@ -3,8 +3,6 @@ import React from "react";
 const DropdowNotifications = props => {
   const notificationsLength = props.children.length;
   const classes = props.className || "";
-  console.log(classes);
-  // notifications-menu tasks-menu user user-menu
   return (
     <li className={`dropdown ${classes}`}>
       <a href="" className="dropdown-toggle" data-toggle="dropdown">
