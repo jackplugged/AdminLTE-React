@@ -1,12 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
 
-const Home = ({ notifications: { data } }) => (
-  <ul>{data.notifications.map(notification => <li key={notification.id}>{notification.text}</li>)}</ul>
-);
+import React from 'react';
 
-const mapStateToProps = state => ({
-  notifications: state.notifications
-});
+const Home = props => <div>Home Component</div>
 
-export default connect(mapStateToProps)(Home);
+export default Home;
