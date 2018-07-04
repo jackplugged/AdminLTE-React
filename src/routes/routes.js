@@ -1,5 +1,5 @@
 
-import Home from '../components/ecosystem/home/home';
+import Home from '../screens/home/home';
 
 const routes = [
     {

@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Main from "./components/ecosystem/main/main";
+import Main from "./screens/main";
 import Routes from "./routes/routes.js";
 
 import "./jquery";
