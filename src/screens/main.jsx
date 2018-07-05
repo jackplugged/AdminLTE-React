@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import MainHeader from "../components/header/main-header";
-import MainSidebar from "../components/sidebar/sidebar";
+import MainSidebar from "../components/sidebar/main-sidebar";
 
 const Main = props => (
   <Fragment>
