@@ -1,5 +1,5 @@
 const multilevel = {
-  text: "Tables",
+  text: "Multilevel",
   icon: "table",
   items: [
     {
