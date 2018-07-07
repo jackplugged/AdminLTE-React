@@ -9,9 +9,10 @@ const MainHeader = () => (
   <SidebarContainer
     render={({ name }) => (
       <SidebarMenu>
-        {menu.map(({ items, ...props }, key) => (
-          <SidebarItem key={key} items={items} {...props} />
-        ))}
+        {menu.map(({ items, ...props }, key) => {
+          // console.log('Passei !!! ');
+          return <SidebarItem key={key} items={items} {...props} />;
+        })}
       </SidebarMenu>
     )}
   />

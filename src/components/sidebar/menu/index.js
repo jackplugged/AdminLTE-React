@@ -1,9 +1,6 @@
 import tables from "./tables";
-import multilevel from './multlevel';
+import multilevel from "./multlevel";
 
-const menu = [
-    tables,
-    multilevel
-];
+const menu = [ multilevel];
 
 export default menu;

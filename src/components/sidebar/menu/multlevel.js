@@ -3,14 +3,21 @@ const multilevel = {
   icon: "table",
   items: [
     {
-      href: "pages/tables/simple.html",
-      icon: "circle-o",
-      text: "Simple Tables"
-    },
-    {
       href: "pages/tables/data.html",
       icon: "circle-o",
-      text: "Data Tables"
+      text: "Level One item 1"
+    },
+    {
+      href: "pages/tables/data2.html",
+      icon: "circle-o",
+      text: "Level One item 2",
+      items: [
+        {
+          href: "pages/tables/data3.html",
+          icon: "circle-o",
+          text: "Level One"
+        }
+      ]
     }
   ]
 };

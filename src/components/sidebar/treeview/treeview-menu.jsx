@@ -1,9 +1,7 @@
 import React from "react";
 
-const TreeviewMenu = props => (
-    <ul className="treeview-menu">
-    {props.children}
-    </ul>
+const TreeviewMenu = ({ children }) => (
+  <ul className="treeview-menu">{children}</ul>
 );
 
 export default TreeviewMenu;
