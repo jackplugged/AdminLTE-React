@@ -1,14 +1,14 @@
 import React from "react";
 
-const Treeview = props => (
+const Treeview = ({icon, text, children}) => (
   <li className="treeview">
-    <a href="#">
-      <i className={`fa fa-${props.icon}`} /> <span>{props.text}</span>
+    <a href="">
+      <i className={`fa fa-${icon}`} /> <span>{text}</span>
       <span className="pull-right-container">
         <i className="fa fa-angle-left pull-right" />
       </span>
     </a>
-    {props.children}
+    {children}
   </li>
 );
 export default Treeview;
