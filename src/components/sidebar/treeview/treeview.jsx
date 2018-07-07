@@ -8,7 +8,7 @@ const Treeview = props => (
         <i className="fa fa-angle-left pull-right" />
       </span>
     </a>
-    {props.render(props)}
+    {props.children}
   </li>
 );
 export default Treeview;

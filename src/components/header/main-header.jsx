@@ -21,10 +21,10 @@ const MainHeader = () => (
             <DropdowNotifications className={"messages-menu"} icon={"envelope-o"} label={"label-danger  "}>
               {messages.map(({ id, ...message }) => <UserNotification key={id} {...message} />)}
             </DropdowNotifications>
-          </NavbarMenu>     
-       </NavbarRightMenu> 
+          </NavbarMenu>
+       </NavbarRightMenu>
     )}
-   />      
+   />
 );
 
 export default MainHeader;

@@ -7,7 +7,7 @@ import store from "./store";
 import Main from "./screens/main";
 import Routes from "./routes/routes.js";
 
-import "./jquery";
+import "./assets/js/jquery";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";

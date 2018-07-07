@@ -3,7 +3,7 @@ import Home from '../screens/home/home';
 
 const routes = [
     {
-        path: "/",       
+        path: "/",
         component: Home
     }
 ]
