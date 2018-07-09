@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TreeviewItem = ({ href, icon, text }) => (
+const TreeviewItem = ({ href, icon, text, className, children }) => (
   <li>
     <a href={href}>
-      <i className={`fa fa-${icon}`} />
+      <i className={`fa fa-${icon} ${className}`} />
       {text}
+      {children}
     </a>
   </li>
 );
