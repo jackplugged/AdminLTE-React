@@ -4,31 +4,35 @@ import Treeview from "../treeview/treeview";
 import TreeviewMenu from "../treeview/treeview-menu";
 import TreeviewItem from "../treeview/treeview-item";
 
-const recursiveTreeview = treeview => {
-  if (!!treeview) {
-    console.log(treeview);
-    return (
-      <TreeviewMenu>
-        {treeview.map(({ text, icon, href, items }, key) => {
-          //if (!items) {
+const recursiveTreeview = treeview => {  
+  if (!!treeview) { 
+    console.log(treeview); 
+    return (     
+        treeview.map(({ text, icon, href, items }, key) => {        
           return (
-            <Fragment key={key}>
-            {/*// dentro do item com a classe*/}
-              <TreeviewItem href={href} text={text} icon={icon} className='treeview'/>
-              {recursiveTreeview(items)}
-            </Fragment>
-          );
-          // }
-        })}
-      </TreeviewMenu>
+            <TreeviewItem key={key} treeview href={href} text={'Filho'} icon={icon}>                 
+            <TreeviewMenu>
+               <TreeviewItem href={href} text={text} icon={icon}/>
+            </TreeviewMenu>
+          </TreeviewItem>   
+        );         
+        })     
     );
   }
-
-  // return ;
-  // return <Treeview key={treeview.text} text={treeview.text} icon={treeview.icon} />;
 };
 
 /*
+
+{/*     
+                  <TreeviewItem treeview href={href} text={'Filho'} icon={icon}>                 
+                    <TreeviewMenu>
+                       <TreeviewItem href={href} text={text} icon={icon}/>
+                    </TreeviewMenu>
+                  </TreeviewItem>  
+                  
+
+
+{recursiveTreeview(items)}    
 <Treeview key={key} text={treeview.text} icon={treeview.icon}>
     <TreeviewMenu>
       {treeview.map(({ item, items }, key) => (
@@ -41,7 +45,27 @@ const recursiveTreeview = treeview => {
 const SidebarItem = ({ items, text, icon }) => {
   return (
     <Treeview text={text} icon={icon}>
-      {recursiveTreeview(items)}
+       <TreeviewMenu>
+       {items.map(({ text, icon, href, items }, key) => {        
+          return (
+            <Fragment key={key}>
+                <TreeviewItem href={href} text={text} icon={icon}/>
+                <TreeviewItem treeview text={'Filho'} icon={icon}>                 
+                    <TreeviewMenu>
+                       <TreeviewItem href={href} text={text} icon={icon}/>
+                      
+                       <TreeviewItem treeview href={href} text={'Filho'} icon={icon}>
+                          <TreeviewMenu>
+                            <TreeviewItem href={href} text={text} icon={icon}/>   
+                          </TreeviewMenu>
+                       </TreeviewItem>   
+                       
+                    </TreeviewMenu>
+                  </TreeviewItem> 
+            </Fragment>
+          );         
+        })}
+       </TreeviewMenu>
     </Treeview>
   );
 };
