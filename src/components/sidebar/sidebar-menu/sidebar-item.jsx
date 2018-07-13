@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import Treeview from "../treeview/treeview";
 import TreeviewMenu from "../treeview/treeview-menu";
 import TreeviewItem from "../treeview/treeview-item";
+import TreeviewNotification from "../treeview/treeview-notification";
 
 const recursiveTreeview = treeview => {
   const { items, text, icon, href } = treeview;
@@ -18,9 +19,13 @@ const recursiveTreeview = treeview => {
       </Treeview>
     );
   }
-  return <TreeviewItem href={href} text={text} icon={icon} />;
+  return <TreeviewItem href={href} text={text} icon={icon}>
+              {/*<TreeviewNotification color={'red'} text={'21'} />*/}     
+        </TreeviewItem>;
 };
 
 const SidebarItem = props => recursiveTreeview(props);
 
 export default SidebarItem;
+
+

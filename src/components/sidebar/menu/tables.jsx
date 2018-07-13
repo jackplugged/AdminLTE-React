@@ -1,9 +1,12 @@
-const tables = {
+import React from 'react';
+import SidebarItem from '../sidebar-menu/sidebar-item';
+
+const items = {
   text: "Tables",
   icon: "table",
   items: [
     {
-      href: "pages/tables/simple.html",
+      href: "/home",
       icon: "circle-o",
       text: "Simple Tables"
     },
@@ -15,4 +18,6 @@ const tables = {
   ]
 };
 
-export default tables;
+const Tables = () => <SidebarItem items={items.items} {...items} />;
+
+export default Tables;
