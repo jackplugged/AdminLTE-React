@@ -1,5 +1,5 @@
 import Tables from "./tables";
 
-const menu = [Tables];
+const menu = [ Tables ];
 
 export default menu;

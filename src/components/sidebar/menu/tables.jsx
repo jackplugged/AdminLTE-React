@@ -1,7 +1,12 @@
 import React from 'react';
+import { connect } from "react-redux";
+
 import SidebarItem from '../sidebar-menu/sidebar-item';
 
-const items = {
+const mapStateToProps = state => {
+ 
+  return ({
+  notifications: state.notifications,
   text: "Tables",
   icon: "table",
   items: [
@@ -13,11 +18,12 @@ const items = {
     {
       href: "pages/tables/data.html",
       icon: "circle-o",
-      text: "Data Tables"
+      text: "Data Tables "+ state.notifications.data.notifications.length
     }
   ]
-};
+})};
 
-const Tables = () => <SidebarItem items={items.items} {...items} />;
+const Tables = props => <SidebarItem items={props.items}  {...props} />;
 
-export default Tables;
+export default connect(mapStateToProps)(Tables);
+

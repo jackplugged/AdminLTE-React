@@ -5,9 +5,10 @@ import TreeviewMenu from "../treeview/treeview-menu";
 import TreeviewItem from "../treeview/treeview-item";
 import TreeviewNotification from "../treeview/treeview-notification";
 
-const recursiveTreeview = treeview => {
-  const { items, text, icon, href } = treeview;
+const recursiveTreeview = treeview => {  
+  const { items, text, icon, href, ...props } = treeview;
 
+  console.log(props);
   if (!!items) {
     return (
       <Treeview text={text} icon={icon}>
