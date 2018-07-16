@@ -7,6 +7,7 @@
     "font-awesome": "^4.7.0",
     "font-awesome-animation": "^0.2.1",
     "jquery": "3.3.1",
+    "namor": "^1.0.1",
     "popper.js": "1.14.3",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -14,6 +15,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "react-table": "^6.8.6",
     "reactstrap": "^6.1.0",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
@@ -24,5 +26,5 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  } 
+  }
 }

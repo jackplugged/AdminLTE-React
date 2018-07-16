@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { Link } from 'react-router-dom';
 
-const TreeviewItem = ({ href, icon, text, notifications, children }) => (
+const TreeviewItem = ({ href, icon, text, children }) => (
   <li>   
     <Link to={href}>
       <i className={`fa fa-${icon}`} />
@@ -16,15 +16,13 @@ const TreeviewItem = ({ href, icon, text, notifications, children }) => (
 TreeviewItem.propTypes = {
   href: PropTypes.string,
   icon: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired, 
-  notifications: PropTypes.array,
+  text: PropTypes.string.isRequired
 };
 
 TreeviewItem.defaultProps = {
   href: "",
   icon: "circle-o",
-  text: "Menu Item",
-  notifications: []
+  text: "Menu Item"
 };
 
 export default TreeviewItem;

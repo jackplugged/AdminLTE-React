@@ -6,7 +6,11 @@ const Main = props => (
   <Fragment>
     <MainHeader />
     <MainSidebar />
-    {props.children}
+    <div class="content-wrapper">
+      <section class="content">
+         {props.children}
+       </section>
+    </div>
   </Fragment>
 );
 

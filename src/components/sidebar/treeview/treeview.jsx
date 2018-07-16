@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Treeview = ({ icon, text, href, children }) => (
+const Treeview = ({ icon, text, href, children, render, notifications }) => (
   <li className="treeview">
     <a href={href}>
       <i className={`fa fa-${icon}`} /> <span>{text}</span>
       <span className="pull-right-container">
-        <i className="fa fa-angle-left pull-right" />
+      <i className="fa fa-angle-left pull-right" />    
+        {render(notifications)}  
       </span>
     </a>
     {children}

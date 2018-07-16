@@ -2,21 +2,20 @@ import { connect } from "react-redux";
 import SidebarItem from 'components/sidebar/sidebar-menu/sidebar-item';
 
 const mapStateToProps = ({ notifications: { data } }) => {
-  console.log(data);
   return ({   
     item:{
       text: "Tables",
       icon: "table",
+      notifications: [
+        {
+          text: "new",
+          color: 'blue'
+        },
+      ],
       items: [{
           href: "/home",
           icon: "circle-o",
-          text: "Simple Tables",
-          notifications: [
-            {
-              text: "new",
-              color: 'green'
-            },
-          ]
+          text: "Simple Tables",         
         },
         {
           href: "pages/tables/data.html",

@@ -5,10 +5,13 @@ import TreeviewMenu from "../treeview/treeview-menu";
 import TreeviewItem from "../treeview/treeview-item";
 import TreeviewNotification from "../treeview/treeview-notification";
 
-const recursiveTreeview = ( { items, text, icon, href, notifications = [], color = 'blue' }) => {  
+const renderNotifications = notifications => notifications.map(({ color, text }, key ) =>
+                  <TreeviewNotification key={key} color={`${color}`} text={`${text}`} />)    
+
+const recursiveTreeview = ( { items, text, icon, href, notifications = [] }) => {  
   if (!!items) {
     return (
-      <Treeview text={text} icon={icon}>
+      <Treeview text={text} icon={icon} render={() => renderNotifications(notifications) }>
         <TreeviewMenu>
           {items.map((item, key) => (
             <Fragment key={key}>{recursiveTreeview(item)}</Fragment>
@@ -19,8 +22,7 @@ const recursiveTreeview = ( { items, text, icon, href, notifications = [], color
   }
 
   return <TreeviewItem href={href} text={text} icon={icon}>
-           {!notifications || notifications.map(({ color, text }, key ) =>
-                 <TreeviewNotification key={key} color={`${color}`} text={`${text}`} />)}      
+           {!notifications || renderNotifications(notifications)}     
          </TreeviewItem>                
 };
 
