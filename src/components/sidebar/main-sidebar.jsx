@@ -1,7 +1,7 @@
 import React from "react";
-import SidebarMenu from "./sidebar-menu/sidebar-menu";
+import SidebarMenu from "components/sidebar/sidebar-menu/sidebar-menu";
 
-import menu from "./menu";
+import menu from "containers/menu";
 
 const MainHeader = () => (
       <SidebarMenu>
