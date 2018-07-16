@@ -1,4 +1,4 @@
-import withItem from 'components/sidebar/sidebar-menu/with-item';
+import withSidebarItem from 'components/sidebar/sidebar-menu/with-sidebar-item';
 
 const multilevel = {
   item: {
@@ -32,4 +32,4 @@ const multilevel = {
   }
 };
 
-export default withItem(multilevel);
+export default withSidebarItem(multilevel);

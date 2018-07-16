@@ -5,7 +5,7 @@ import TreeviewMenu from "../treeview/treeview-menu";
 import TreeviewItem from "../treeview/treeview-item";
 import TreeviewNotification from "../treeview/treeview-notification";
 
-const recursiveTreeview = ( { items, text, icon, href, count = 0, color = 'blue' }) => {  
+const recursiveTreeview = ( { items, text, icon, href, notifications = [], color = 'blue' }) => {  
   if (!!items) {
     return (
       <Treeview text={text} icon={icon}>
@@ -17,9 +17,11 @@ const recursiveTreeview = ( { items, text, icon, href, count = 0, color = 'blue'
       </Treeview>
     );
   }
-  return (<TreeviewItem href={href} text={text} icon={icon}>
-          {!count || <TreeviewNotification color={`${color}`} text={`${count}`} /> }      
-          </TreeviewItem>);
+
+  return <TreeviewItem href={href} text={text} icon={icon}>
+           {!notifications || notifications.map(({ color, text }, key ) =>
+                 <TreeviewNotification key={key} color={`${color}`} text={`${text}`} />)}      
+         </TreeviewItem>                
 };
 
 const SidebarItem = ({ item }) => recursiveTreeview(item);
