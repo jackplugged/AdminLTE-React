@@ -4,12 +4,6 @@ const multilevel = {
   item: {
     text: "Multilevel",
     icon: "table",
-    notifications: [
-      {
-        text: "new",
-        color: 'green'
-      },
-    ],
     items: [{
         href: "pages/tables/data.11.html",
         icon: "circle-o",
@@ -29,7 +23,13 @@ const multilevel = {
             items: [{
               href: "pages/tables/data.31.html",
               icon: "circle-o",
-              text: "Level 3 item 1"
+              text: "Level 3 ",
+              notifications: [
+                {
+                  text: "importante !",
+                  color: 'green'
+                },
+              ],
             }]
           }
         ]

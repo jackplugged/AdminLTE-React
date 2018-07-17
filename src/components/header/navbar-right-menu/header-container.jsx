@@ -6,7 +6,7 @@ import { requestNotifications } from "../../../store/notifications/actions";
 class HeaderContainer extends PureComponent {
   componentDidMount() {
     !!this.props.notifications.loading || this.props.requestNotifications();
-    setInterval(() => {this.props.requestNotifications();}, 5000);
+    setInterval(() => {this.props.requestNotifications();}, 50000);
   }
 
   render() {

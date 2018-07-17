@@ -4,35 +4,44 @@ import SidebarItem from "components/sidebar/sidebar-menu/sidebar-item";
 const mapStateToProps = ({ notifications: { data } }) => {
   return {
     item: {
-      text: "Tables",
+      text: "Mensagens",
       icon: "table",
       notifications: [
         {
-          text: "new",
+          text: "novas !",
           color: "blue"
         }
       ],
       items: [
         {
           href: "/home",
-          icon: "circle-o",
-          text: "Simple Tables"
-        },
-        {
-          href: "pages/tables/data.html",
-          icon: "circle-o",
-          text: "Data Tables ",
+          icon: "flag-o",
+          text: "Notificações",
           notifications: [
             {
               text: data.notifications.length,
-              color: "blue"
-            },
-            {
-              text: data.messages.length,
-              color: "yellow"
-            },
+              color: "green"
+            }
+          ]
+        },
+        {
+          href: "pages/tables/data.html",
+          icon: "bell-o",
+          text: "Alertas",
+          notifications: [
             {
               text: data.tasks.length,
+              color: "yellow"
+            }
+          ]
+        },
+        {
+          href: "pages/tables/data.html",
+          icon: "envelope-o",
+          text: "E-Mails",
+          notifications: [
+            {
+              text: data.messages.length,
               color: "red"
             }
           ]
