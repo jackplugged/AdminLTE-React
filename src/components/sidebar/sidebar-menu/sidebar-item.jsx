@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 
-import Treeview from "../treeview/treeview";
-import TreeviewMenu from "../treeview/treeview-menu";
-import TreeviewItem from "../treeview/treeview-item";
-import TreeviewNotification from "../treeview/treeview-notification";
+import Treeview from "components/sidebar/treeview/treeview";
+import TreeviewMenu from "components/sidebar/treeview/treeview-menu";
+import TreeviewItem from "components/sidebar/treeview/treeview-item";
+import TreeviewNotification from "components/sidebar/treeview/treeview-notification";
 
 const renderNotifications = notifications => notifications.map(({ color, text }, key ) =>
                   <TreeviewNotification key={key} color={`${color}`} text={`${text}`} />)    

@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import { requestNotifications } from "../../../store/notifications/actions";
+import { requestNotifications } from "store/notifications/actions";
 
 class HeaderContainer extends PureComponent {
   componentDidMount() {
