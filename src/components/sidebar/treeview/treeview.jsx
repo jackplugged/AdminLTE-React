@@ -1,18 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-const Treeview = ({ icon, text, href, children, render, notifications }) => (
-  <li className="treeview">
-    <a href={href}>
-      <i className={`fa fa-${icon}`} /> <span>{text}</span>
-      <span className="pull-right-container">
-      <i className="fa fa-angle-left pull-right" />    
-        {render(notifications)}  
-      </span>
-    </a>
-    {children}
-  </li>
-);
+class Treeview extends Component {
+  constructor(props){
+    super(props);
+    const { id } = this.props;
+    this.state = {
+      ['id_'+ id ]: false,
+      id:id
+    }
+  }
+  
+  handleClick = e =>{
+    e.preventDefault();    
+    this.setState(prevState => ({
+      //['id_'+ this.state ]: !prevState.open
+    }));    
+  }
+
+  render(){
+   const { icon, text, href, children, notifications } = this.props;
+   console.log(this.state);
+    return (
+    <li onClick={this.handleClick} className={`treeview ${this.state.open ? 'menu-open' : ''}`}>
+      <a href={href}>
+        <i className={`fa fa-${icon}`} /> <span>{text}</span>
+        <span className="pull-right-container">
+        <i className="fa fa-angle-left pull-right" />    
+          {notifications}  
+        </span>
+      </a>
+      {children(this.state)}
+    </li>
+    )
+  }
+}
 
 Treeview.propTypes = {
   href: PropTypes.string,

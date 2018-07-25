@@ -1,67 +1,42 @@
 
 import React, { Component } from "react";
-
-/*
-window.addEventListener("resize", resizeThrottler, false);
-
-var resizeTimeout;
-function resizeThrottler() {
-  // ignore resize events as long as an actualResizeHandler execution is in the queue
-  if ( !resizeTimeout ) {
-    resizeTimeout = setTimeout(function() {
-      resizeTimeout = null;
-      actualResizeHandler();
-     // The actualResizeHandler will execute at a rate of 15fps
-     }, 500);
-  }
-}
-
-function actualResizeHandler() {
-  // handle the resize event
-   console.log('alterado');
-}
-*/
+import debounceEvent from "utils/debounce-event";
 
 class MainContentWrapper extends Component {
-  componentDidMount() {
-    this.active();
+
+  constructor(props){
+    super(props);
+    this.state = {
+      minHeight: "100%"
+    }
   }
 
-  active = () => {
-    this.fix();
+  componentDidMount() {           
+    this.handleResize();
 
-    let resetHeight = true;
-    let bindedResize = false;
-    let html = "";
-
-    let body = document.querySelector("body").classList;
+    let html, body;
+    body = document.querySelector("body").classList;
     body.remove("hold-transition");
 
-    if (resetHeight) {
-      html = document.querySelector("body, html, .wrapper");
-      html.style.height = "auto";
-      html.style.minHeight = "100%";
-    }
+    html = document.querySelector("body, html, .wrapper");
+    html.style.height = "auto";
+    html.style.minHeight = "100%";
+    
+    window.addEventListener("resize", debounceEvent( () => this.handleResize(), 500), false);
+  }
 
-    if (!bindedResize) {
-     //this.fix();
-      bindedResize = true;
-    }
-  };
-
-  fix = () => {
+  handleResize = () => {
     const footerHeight  = document.querySelector(".main-footer").getBoundingClientRect().height || 0;
-    const neg = document.querySelector(".main-header").getBoundingClientRect().height || 0;
-    const windowHeight =  window.outerHeight || 0;
-    const sidebarHeight = document.querySelector('.sidebar').getBoundingClientRect().height || 0;
+    const headerHeight = ( document.querySelector(".main-header").getBoundingClientRect().height || 0 );
+    const windowHeight =  window.innerHeight || 0;    
+    const postSetHeight = (windowHeight - ( footerHeight + headerHeight ));
 
-    console.log(footerHeight, neg, windowHeight, sidebarHeight);
-
-  };
-
+    this.setState({ minHeight: postSetHeight });
+  }
+  
   render() {
     return (
-      <div className="content-wrapper">
+      <div className="content-wrapper" style={{ minHeight: this.state.minHeight }}>
         <section className="content">{this.props.children}</section>
       </div>
     );

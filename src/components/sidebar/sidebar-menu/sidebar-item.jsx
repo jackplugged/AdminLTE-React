@@ -5,24 +5,26 @@ import TreeviewMenu from "components/sidebar/treeview/treeview-menu";
 import TreeviewItem from "components/sidebar/treeview/treeview-item";
 import TreeviewNotification from "components/sidebar/treeview/treeview-notification";
 
-const renderNotifications = notifications => notifications.map(({ color, text }, key ) =>
+const treeviewNotifications = notifications => notifications.map(({ color, text }, key ) =>
                   <TreeviewNotification key={key} color={`${color}`} text={`${text}`} />)    
 
 const recursiveTreeview = ( { items, text, icon, href, notifications = [] }) => {  
   if (!!items) {
     return (
-      <Treeview text={text} icon={icon} render={() => renderNotifications(notifications) }>
-        <TreeviewMenu>
+      <Treeview id={Math.random().toString().substr(3, 10)} text={text} icon={icon} notifications={treeviewNotifications(notifications)}>
+      {({ open }) =>      
+        <TreeviewMenu isOpen={open} >
           {items.map((item, key) => (
             <Fragment key={key}>{recursiveTreeview(item)}</Fragment>
           ))}
-        </TreeviewMenu>
+        </TreeviewMenu>      
+      }        
       </Treeview>
     );
   }
 
   return <TreeviewItem href={href} text={text} icon={icon}>
-           {!notifications || renderNotifications(notifications)}     
+           {!notifications || treeviewNotifications(notifications)}     
          </TreeviewItem>                
 };
 
