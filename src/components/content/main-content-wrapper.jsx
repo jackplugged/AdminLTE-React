@@ -1,72 +1,63 @@
-import React, { PureComponent } from "react";
 
-// Setup a timer
-var timeout;
+import React, { Component } from "react";
 
-// Listen for resize events
-window.addEventListener("resize", function(event) {
-    console.log("no debounce");
+/*
+window.addEventListener("resize", resizeThrottler, false);
 
-    // If there's a timer, cancel it
-    if (timeout) {
-      window.cancelAnimationFrame(timeout);
-    }
+var resizeTimeout;
+function resizeThrottler() {
+  // ignore resize events as long as an actualResizeHandler execution is in the queue
+  if ( !resizeTimeout ) {
+    resizeTimeout = setTimeout(function() {
+      resizeTimeout = null;
+      actualResizeHandler();
+     // The actualResizeHandler will execute at a rate of 15fps
+     }, 500);
+  }
+}
 
-    // Setup the new requestAnimationFrame()
-    timeout = window.requestAnimationFrame(function() {
-      // Run our scroll functions
-      console.log("debounced");
-    });
-  },
-  false
-);
+function actualResizeHandler() {
+  // handle the resize event
+   console.log('alterado');
+}
+*/
 
-
-class MainContentWrapper extends PureComponent {
-
-
-  active = () =>{
-    this.fix()
-
-    const body = document.querySelector('body')
-
-    /*
-    $('body').removeClass(ClassName.holdTransition);
-
-
-    if (this.options.resetHeight) {
-      $('body, html, ' + Selector.wrapper).css({
-        'height'    : 'auto',
-        'min-height': '100%'
-      });
-    }
-
-    if (!this.bindedResize) {
-      $(window).resize(function () {
-        this.fix();
-        
-
-        $(Selector.logo + ', ' + Selector.sidebar).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
-          this.fix();         
-        }.bind(this));
-      }.bind(this));
-
-      this.bindedResize = true;
-    }
-
-    $(Selector.sidebarMenu).on('expanded.tree', function () {
-      this.fix();      
-    }.bind(this));
-
-    $(Selector.sidebarMenu).on('collapsed.tree', function () {
-      this.fix();   
-    }.bind(this));
-    */
+class MainContentWrapper extends Component {
+  componentDidMount() {
+    this.active();
   }
 
-  fix  = () =>{
+  active = () => {
+    this.fix();
 
-  }
+    let resetHeight = true;
+    let bindedResize = false;
+    let html = "";
+
+    let body = document.querySelector("body").classList;
+    body.remove("hold-transition");
+
+    if (resetHeight) {
+      html = document.querySelector("body, html, .wrapper");
+      html.style.height = "auto";
+      html.style.minHeight = "100%";
+    }
+
+    if (!bindedResize) {
+     //this.fix();
+      bindedResize = true;
+    }
+  };
+
+  fix = () => {
+    const footerHeight  = document.querySelector(".main-footer").getBoundingClientRect().height || 0;
+    const neg = document.querySelector(".main-header").getBoundingClientRect().height || 0;
+    const windowHeight =  window.outerHeight || 0;
+    const sidebarHeight = document.querySelector('.sidebar').getBoundingClientRect().height || 0;
+
+    console.log(footerHeight, neg, windowHeight, sidebarHeight);
+
+  };
 
   render() {
     return (

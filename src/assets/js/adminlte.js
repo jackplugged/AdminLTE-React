@@ -80,14 +80,6 @@ void function ($) {
 
       this.bindedResize = true;
     }
-
-    $(Selector.sidebarMenu).on('expanded.tree', function () {
-      this.fix();      
-    }.bind(this));
-
-    $(Selector.sidebarMenu).on('collapsed.tree', function () {
-      this.fix();   
-    }.bind(this));
   };
 
   Layout.prototype.fix = function () {
