@@ -1,12 +1,12 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { requestNotifications } from "store/notifications/actions";
 
-class HeaderContainer extends PureComponent {
+class HeaderContainer extends Component {
   componentDidMount() {
-    !!this.props.notifications.loading || this.props.requestNotifications();
-    setInterval(() => {this.props.requestNotifications();}, 50000);
+    //!!this.props.notifications.loading || this.props.requestNotifications();
+    //setInterval(() => {this.props.requestNotifications();}, 50000);
   }
 
   render() {

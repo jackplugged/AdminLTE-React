@@ -10,8 +10,9 @@ const treeviewNotifications = notifications => notifications.map(({ color, text 
 
 const recursiveTreeview = ( { items, text, icon, href, notifications = [] }) => {  
   if (!!items) {
+    let id = Math.random().toString().substr(2, 15);
     return (
-      <Treeview id={Math.random().toString().substr(3, 10)} text={text} icon={icon} notifications={treeviewNotifications(notifications)}>
+      <Treeview id={id} text={text} icon={icon} notifications={treeviewNotifications(notifications)}>
       {({ open }) =>      
         <TreeviewMenu isOpen={open} >
           {items.map((item, key) => (

@@ -1,32 +1,14 @@
 {
-    "version": "0.2.0",
+    "version": "0.1.0",
     "configurations": [
-
         {
-            "name": "Launch",
-            "type": "node",
+            "name": "Debugger REACT",
+            "type": "chrome",
             "request": "launch",
-            "program": "${workspaceRoot}/src/index.js",
-            "stopOnEntry": false,
-            "args": [],
-            "cwd": "${workspaceRoot}",
-            "preLaunchTask": null,           
-            "env": {
-                "NODE_ENV": "development"
-            },           
-            "sourceMaps": false,        
-            "runtimeExecutable": "/home/sidneisimmon/.nvm/bin/node-v8.9.1-linux-x64",  
-        },
-        {
-            "name": "Attach",
-            "type": "node",
-            "request": "attach",
-            "port": 5858,
-            "address": "localhost",
-            "restart": false,
-            "sourceMaps": false,           
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": null
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            
         }
+       
     ]
 }

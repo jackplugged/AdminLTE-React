@@ -3,26 +3,39 @@ import PropTypes from "prop-types";
 
 class Treeview extends Component {
   constructor(props){
-    super(props);
-    const { id } = this.props;
+    super(props);      
     this.state = {
-      ['id_'+ id ]: false,
-      id:id
+      open: false
     }
   }
   
   handleClick = e =>{
-    e.preventDefault();    
-    this.setState(prevState => ({
-      //['id_'+ this.state ]: !prevState.open
-    }));    
+    e.preventDefault();  
+
+    const treeview = document.querySelectorAll('.treeview-menu');
+    Array.from(treeview).map(child =>  {
+      console.log(child.style.display);
+      //   child.classList.add('menu-open');
+      
+    
+         //let treeview2 = document.querySelectorAll('.treeview-menu');
+         //child.classList.add('menu-open');
+    });
+   
+       this.setState(prevState => ({
+         ['open']: !prevState.open
+    }));   
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+   // console.log(this.state.open, nextState.open);
+    return true;
   }
 
   render(){
-   const { icon, text, href, children, notifications } = this.props;
-   console.log(this.state);
+   const { id, icon, text, href, children, notifications } = this.props;
     return (
-    <li onClick={this.handleClick} className={`treeview ${this.state.open ? 'menu-open' : ''}`}>
+    <li onClick={this.handleClick} id={'_'+id} className={`treeview ${this.state.open ? 'menu-open' : ''}`}>
       <a href={href}>
         <i className={`fa fa-${icon}`} /> <span>{text}</span>
         <span className="pull-right-container">
