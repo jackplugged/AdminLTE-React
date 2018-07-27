@@ -5,8 +5,8 @@ import { requestNotifications } from "store/notifications/actions";
 
 class HeaderContainer extends Component {
   componentDidMount() {
-    //!!this.props.notifications.loading || this.props.requestNotifications();
-    //setInterval(() => {this.props.requestNotifications();}, 50000);
+    !!this.props.notifications.loading || this.props.requestNotifications();
+    setInterval(() => {this.props.requestNotifications();}, 50000);
   }
 
   render() {
