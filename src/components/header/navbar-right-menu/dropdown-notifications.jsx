@@ -11,8 +11,8 @@ const DropdowNotifications = props => {
           {!!notificationsLength ? (
             props.children.length
           ) : (
-            <i className="fa fa-refresh faa-spin animated" />
-          )}
+              <i className="fa fa-refresh faa-spin animated" />
+            )}
         </span>
       </a>
       <ul className="dropdown-menu">

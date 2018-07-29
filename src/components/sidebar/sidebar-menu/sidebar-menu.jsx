@@ -1,6 +1,6 @@
 import React from "react";
 
-const SidebarMenu = ({ children }) => (
+const SidebarMenu = ({ children }) =>
   <aside className="main-sidebar">
     <section className="sidebar">
       <ul className="sidebar-menu" data-widget="tree">
@@ -8,7 +8,6 @@ const SidebarMenu = ({ children }) => (
         {children}
       </ul>
     </section>
-  </aside>
-);
+  </aside>;
 
 export default SidebarMenu;

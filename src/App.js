@@ -12,11 +12,6 @@ import "font-awesome/css/font-awesome.min.css";
 import "assets/css/AdminLTE.css";
 import "assets/css/skins/skin-blue.css";
 
-//import "./assets/js/jquery";
-//import "font-awesome-animation/dist/font-awesome-animation.min.css";
-//import "bootstrap/dist/js/bootstrap.min";
-//import "./assets/js/adminlte";
-
 class App extends Component {
   render() {
     return (

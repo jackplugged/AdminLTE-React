@@ -1,0 +1,11 @@
+{
+    "parser": "babel-eslint",
+    "rules": {
+        "semi": ["error", "always"],
+        "quotes": ["error", "double"]
+    },
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+    }    
+}

@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 
-const Notification = ({ icon, color, text }) => (
+const Notification = ({ icon, color, text }) =>
     <li>
         <a href="">
             <i className={`fa fa-${icon} text-${color}`}> {text} </i>
         </a>
-    </li>
-)
+    </li>;
 
 export default Notification;

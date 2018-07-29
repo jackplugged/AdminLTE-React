@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const TaskNotification = ({ text, percent, color }) => (
+const TaskNotification = ({ text, percent, color }) =>
     <li>
         <a href="">
             <h3>
@@ -14,7 +14,6 @@ const TaskNotification = ({ text, percent, color }) => (
                 </div>
             </div>
         </a>
-    </li>
-)
+    </li>;
 
 export default TaskNotification;

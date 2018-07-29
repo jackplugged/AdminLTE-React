@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserNotification = ({ img, name, time, message }) => (
+const UserNotification = ({ img, name, time, message }) =>
   <li>
     <a href="">
       <div className="pull-left">
@@ -14,7 +14,6 @@ const UserNotification = ({ img, name, time, message }) => (
       </h4>
       <p>{message}</p>
     </a>
-  </li>
-);
+  </li>;
 
 export default UserNotification;
