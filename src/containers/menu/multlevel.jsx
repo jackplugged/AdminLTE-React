@@ -7,11 +7,11 @@ import TreeviewNotification from "components/sidebar/treeview/treeview-notificat
 
 const Multlevel = ({ notifications, tasks, messages }) => {
   return (
-    <TreeviewItem text="Mensagens" icon="table" dropdown>
+    <TreeviewItem text="Mensagens" icon="list" dropdown>
       <TreeviewNotification color="blue" text={`${notifications}`} />
       <TreeviewMenu>
-        <TreeviewItem text="Notificações" icon="flag-o" />
-        <TreeviewItem text="Notificações" icon="flag-o" dropdown>
+        <TreeviewItem text="Notificações" icon="table" />
+        <TreeviewItem text="E-mails" icon="flag-o" dropdown>
           <TreeviewMenu>
             <TreeviewItem text="Notificações" icon="circle-o">
               <TreeviewNotification color="yellow" text={`${tasks}`} />
