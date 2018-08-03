@@ -1,85 +1,67 @@
-import React from "react";
+
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
+
+import { openTreviewMenu } from "store/treeview/actions";
+
+class TreeviewItem extends Component{
+
+  constructor(props){
+    super(props);
+    this.state = {
+      isOpen: false
+    };
+  }
+  
+  shouldComponentUpdate(nextProps, nextState){
+    return true;
+  }
+
+  treeviewParent = event =>{
+    const element = event.target;
+    const parent = element.parentElement;
+    const child = element.nextElementSibling;
+  
+    console.log(this.props.dropdown);
+
+    return event;
+  }
 
 
-const handleToggle = event =>{
-  event.preventDefault();
+  handleToggle = e => {   
+    e.preventDefault();
 
-  const element = event.target;
-  const parent = element.parentElement;
-  const child = element.nextElementSibling;
+    this.treeviewParent(e);
 
-  console.log(child.children);
+    this.setState( prevState => (
+      {...prevState, isOpen: !prevState.isOpen }
+    ));
+  }
 
+  render(){      
+    const { href, icon, text, menu, dropdown } = this.props;
+    const treeview = dropdown ? "treeview" : "";
+    const isOpen = this.state.isOpen ? "menu-open" : "";
 
-/*
-
-  Array.from(parent).map( el => {
-    console.log(el);
-  });
-
-  /*
-  const element = event.target;
-  const parent = element.parentElement;
-  const child = element.nextElementSibling;
-
-  parent.classList.toggle("menu-open");
-  child.style.display = "block";
-
-  //console.log(parent, element, child);
-
-  const childTarget = document.getElementById(parent.id);
-  childTarget.classList.toggle("menu-open");
-
-
-  console.log(childTarget);
-  /*
-  const element = event.target.parentElement;
-  element.classList.toggle("menu-open");
-
-  console.log(element.classList);
-
-  const child = document.getElementById(element.id);
-  const mode = child.children[1].style.display;
-  //console.log(mode);
-  child.children[1].style.display =  "block";
-
-
-  const child = element.children[1].style;
- // console.log(child.children);
- //child.style.display = "block";
- console.log(element.id);
- child.display = ( child.display ==="none" ) ? "block" : "none";
- */
-};
-
-const TreeviewItem = ({ href, icon, text, dropdown, children }) => {
-
-  const notifications = [], childs = [];
-
-  React.Children.map(children, (child, i) => {
-    let cloned = React.cloneElement(child, { key: i });
-    child.type.name === "TreeviewNotification" ? notifications[i] = cloned : childs[i] = child;
-  });
-
-  return (
-    // menu-open
-    <li onClick={handleToggle} id={`_${Math.random().toString().substr(2, 10)}`} className={`${dropdown ? "treeview" : ""}`}>
+    return (
+     <li onClick={this.handleToggle} className={`${treeview} ${isOpen}`}>
       <Link to={href}>
         <i className={`fa fa-${icon}`} />
         {text}
         <span className="pull-right-container">
-          {notifications}
+          {this.notifications}
           {!dropdown || <small className="fa fa-angle-left pull-right" />}
         </span>
       </Link>
-      {childs}
+      {menu(this.state)}
     </li>
-  );
-};
+    );
+  }
+}
 
 TreeviewItem.propTypes = {
   href: PropTypes.string,
@@ -90,7 +72,22 @@ TreeviewItem.propTypes = {
 TreeviewItem.defaultProps = {
   href: "",
   icon: "circle-o",
-  text: "Menu Item"
+  text: "Menu Item",
+  menu: ()=>{},
+  level: null
 };
 
-export default TreeviewItem;
+const mapStateToProps = ({ notifications: { data }, treeview: { menu } }) => ({
+  notifications: data.notifications.length,
+  tasks: data.tasks.length,
+  messages: data.messages.length,
+  treeview: menu,
+});
+
+const mapDispatchToProps = dispatch => ({
+  openTreviewMenu: () => dispatch(openTreviewMenu("parent"))
+});
+
+export default connect( mapStateToProps, mapDispatchToProps )(TreeviewItem);
+
+

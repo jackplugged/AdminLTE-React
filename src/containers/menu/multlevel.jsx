@@ -7,7 +7,20 @@ import TreeviewNotification from "components/sidebar/treeview/treeview-notificat
 
 const Multlevel = ({ notifications, tasks, messages }) => {
   return (
-    <TreeviewItem text="Mensagens" icon="list" dropdown>
+    <TreeviewItem text="Mensagens" icon="list" dropdown='parent' menu={ ({ isOpen }) =>       
+       <TreeviewMenu open={isOpen}>
+          <TreeviewItem text="Notificações" icon="table" />
+          <TreeviewItem text="Notificações" icon="table" dropdown='child' menu={ ({ isOpen }) =>
+             <TreeviewMenu open={isOpen}>
+                <TreeviewItem text="Notificações" icon="table" />
+            </TreeviewMenu>}>
+          </TreeviewItem>
+       </TreeviewMenu>}>
+    </TreeviewItem>
+    );
+};
+
+/*
       <TreeviewNotification color="blue" text={`${notifications}`} />
       <TreeviewMenu>
         <TreeviewItem text="Notificações" icon="table" />
@@ -20,9 +33,8 @@ const Multlevel = ({ notifications, tasks, messages }) => {
           </TreeviewMenu>
         </TreeviewItem>
       </TreeviewMenu>
-    </TreeviewItem>
-  );
-};
+
+*/
 
 const mapStateToProps = ({ notifications: { data } }) => ({
   notifications: data.notifications.length,

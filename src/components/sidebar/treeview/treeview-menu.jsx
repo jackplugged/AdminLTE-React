@@ -1,7 +1,6 @@
 import React from "react";
 
-const TreeviewMenu = ({ children }) =>
-    <ul className="treeview-menu" style={{ display: "none" }}>{children}</ul>;
-
+const TreeviewMenu = ({ children, open }) =>
+    <ul className="treeview-menu" style={{ display: (open ? "block" : "none") }}>{children}</ul>;
 
 export default TreeviewMenu;

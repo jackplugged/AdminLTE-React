@@ -3,6 +3,6 @@ import Multlevel from "containers/menu/multlevel";
 import Grids from "containers/menu/grids";
 
 
-const menu = [ Tables, Multlevel, Grids ];
+const menu = [  Multlevel ];
 
 export default menu;
