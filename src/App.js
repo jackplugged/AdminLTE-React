@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "store";
 
 import Main from "screens/main";
-import Routes from "routes/routes.js";
+import Routes from "routes/";
 
 import "assets/js/jquery";
 
@@ -25,6 +25,7 @@ class App extends Component {
         <Main>
           <Switch>
             {Routes.map((prop, key) => {
+              console.table(prop);
               return (
                 <Route path={prop.path} component={prop.component} key={key} />
               );

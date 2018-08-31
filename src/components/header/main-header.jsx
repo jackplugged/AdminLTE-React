@@ -6,7 +6,7 @@ import NavbarMenu from "./navbar-right-menu/navbar-menu";
 import DropdowNotifications from "./navbar-right-menu/dropdown-notifications";
 import Notification from "./navbar-right-menu/notification";
 import TaskNotification from "./navbar-right-menu/task-notification";
-import UserNotification from './navbar-right-menu/user-notification';
+import UserNotification from "./navbar-right-menu/user-notification";
 
 const MainHeader = () => (
   <HeaderContainer render={({ data: { notifications, tasks, messages } }) => (

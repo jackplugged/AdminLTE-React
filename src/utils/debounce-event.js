@@ -7,7 +7,7 @@ const debounceEvent = (callback, timeout) => {
         interval = null;
         callback();
       }, timeout);
-    }
-}
+    };
+};
 
 export default debounceEvent;
